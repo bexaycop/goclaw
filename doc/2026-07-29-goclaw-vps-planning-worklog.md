@@ -137,8 +137,9 @@ Không có nguyên tắc mới cần cập nhật vào `AGENTS.md` hoặc memory
 
 - Fetch và đối chiếu local `dev` với `upstream/dev`.
 - Xác nhận khóa SSH GitHub thuộc tài khoản `bexaycop`.
-- Chuẩn bị tạo fork `bexaycop/goclaw`, đặt remote `origin` trỏ fork và giữ `upstream` trỏ repo nguồn.
+- Tạo fork public `bexaycop/goclaw`, đặt remote `origin` trỏ fork và giữ `upstream` trỏ repo nguồn.
 - Rà soát toàn bộ file thay đổi trước khi commit/push.
+- Push commit tài liệu lên `origin/dev` và đặt nhánh local theo dõi `origin/dev`.
 
 ### Lỗi gặp
 
@@ -163,12 +164,15 @@ Không có nguyên tắc mới cần cập nhật vào `AGENTS.md` hoặc memory
 - `git fetch upstream --prune` hoàn tất.
 - `HEAD...upstream/dev` trả `0 0` trước khi tạo commit tài liệu.
 - SSH xác thực thành công đúng tài khoản `bexaycop`.
-- Các kiểm tra staged content, secret, file lớn, whitespace, SHA local/remote được ghi bổ sung sau bước push.
+- Hai file thay đổi không chứa private key, GitHub token, AWS access key, bearer token hoặc URL có credential thật.
+- Không có file thay đổi lớn hơn 10 MiB.
+- `git diff --cached --check`, kiểm tra UTF-8, relative links và `git fsck --no-dangling` đều đạt trước commit.
+- Lần push đầu đã xác minh local SHA = tracking SHA = remote SHA tại `64eb991118ecc78446b89d41823ac097f4a511f8`; ahead/behind trả `0 0`.
 
 ### Việc còn lại
 
-- Hoàn tất xác thực GitHub CLI nếu GitHub yêu cầu.
-- Tạo fork, commit, push và đối chiếu SHA ba chiều.
+- Commit và push phần cập nhật worklog cuối cùng.
+- Xác minh lại SHA ba chiều và working tree sạch sau commit cuối.
 
 ### Quy tắc làm việc có gì thay đổi
 
@@ -180,7 +184,7 @@ Không có vi phạm. Lỗi phụ thuộc công cụ và chọn khóa SSH đã �
 
 ### Đã khắc phục chưa
 
-Đã khắc phục phần GitHub CLI và SSH; bước tạo fork/push đang được thực hiện.
+Đã khắc phục GitHub CLI và SSH; fork cùng lần push đầu đã hoàn tất.
 
 ### Đã lưu thành nguyên tắc làm việc chưa
 
