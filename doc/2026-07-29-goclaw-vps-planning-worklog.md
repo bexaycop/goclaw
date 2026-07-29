@@ -171,8 +171,8 @@ Không có nguyên tắc mới cần cập nhật vào `AGENTS.md` hoặc memory
 
 ### Việc còn lại
 
-- Commit và push phần cập nhật worklog cuối cùng.
-- Xác minh lại SHA ba chiều và working tree sạch sau commit cuối.
+- Không còn việc nào trong phạm vi đồng bộ GitHub.
+- Triển khai VPS/domain là phase riêng, cần hạ tầng và thông tin truy cập tương ứng.
 
 ### Quy tắc làm việc có gì thay đổi
 
